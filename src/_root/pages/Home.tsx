@@ -8,9 +8,9 @@ function Home() {
 
     const { channels, isLoading, fetchAll, hasFetched, error } = useChannelStore();
 
-    if (error) {
-        toast.error('Error: failed to load channels!');
-    }
+    useEffect(() => {
+        if(error) toast.error('Error: failed to load channels!');
+    },[error])
 
     // fetch channels on page load
     useEffect(() => {
@@ -18,6 +18,8 @@ function Home() {
             fetchAll();
         }
     }, []);
+
+    
 
     return (
         <>
