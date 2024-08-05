@@ -2,7 +2,6 @@ import axios from "axios";
 import { Channel } from "../types";
 
 const channels_endpoint = 'https://iptv-org.github.io/api/channels.json';
-const streams_endpoint = 'https://iptv-org.github.io/api/channels.json';
 
 export const getChannels = async (): Promise<Channel[]> => {
     try {

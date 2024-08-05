@@ -1,6 +1,5 @@
 import { create } from "zustand";
 import { Channel } from "./types";
-import { getChannels } from "./api";
 import { phPlaylistUrl, readPlaylist } from "./utils";
 
 export interface ChannelStoreState {

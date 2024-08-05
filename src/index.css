@@ -3,8 +3,7 @@
 @tailwind utilities;
 
 @layer components {
-  .channels-container {
-  }
+ 
   .channel {
     @apply cursor-pointer bg-white bg-opacity-20 p-4 flex items-center justify-center transition-all border border-gray-500 hover:border rounded-md hover:bg-opacity-40 hover:border-purple-600;
   }

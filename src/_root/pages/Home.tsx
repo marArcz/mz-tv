@@ -1,7 +1,5 @@
-import { useEffect, useState } from 'react'
-import toast, { Toaster } from 'react-hot-toast';
-import { Channel } from '../../types';
-import { getChannels } from '../../api';
+import { useEffect } from 'react'
+import toast from 'react-hot-toast';
 import { useChannelStore } from '../../store';
 import Header from '../../components/Header';
 import { Link } from 'react-router-dom';
