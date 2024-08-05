@@ -8,14 +8,15 @@ const Watch = () => {
     const searchParams = new URLSearchParams(location.search);
     const stream = searchParams.get('stream');
     const [muted, setMuted] = useState(true)
-
+    const [playing, setPlaying] = useState(false)
     return (
         <div>
             <Link className=' mb-3' to={'/'}>Back to channel list</Link>
             <br />
             <br />
             <ReactPlayer
-                playing
+                playing={playing}
+                onReady={() => setPlaying(true)}
                 onPlay={() => setMuted(false)}
                 muted={muted}
                 stopOnUnmount
