@@ -16,20 +16,22 @@ export const readPlaylist = async (playlist: string): Promise<Playlist> => {
 
         const channelName = lineInfo.substring(lineInfo.lastIndexOf(',') + 1).trim()
         const values = lineInfo.substring(0, lineInfo.lastIndexOf(',')).split(' ').slice(1);
-        const id = values[0].substring(values[0].indexOf('"') + 1, values[0].lastIndexOf('"'));
-        const logo = values[1].substring(values[1].indexOf('"') + 1, values[1].lastIndexOf('"'));
-        const category = values[2].substring(values[2].indexOf('"') + 1, values[2].lastIndexOf('"'));
+        if (values.length > 0) {
+            const id = values[0].substring(values[0].indexOf('"') + 1, values[0].lastIndexOf('"'));
+            const logo = values[1].substring(values[1].indexOf('"') + 1, values[1].lastIndexOf('"'));
+            const category = values[2].substring(values[2].indexOf('"') + 1, values[2].lastIndexOf('"'));
 
-        channels.push({
-            id,
-            logo,
-            category,
-            name: channelName,
-            country: '',
-            url: lineUrl.trim()
-        })
+            channels.push({
+                id,
+                logo,
+                category,
+                name: channelName,
+                country: '',
+                url: lineUrl.trim()
+            })
 
-        categories.push(category)
+            categories.push(category)
+        }
     }
     return {
         categories,
