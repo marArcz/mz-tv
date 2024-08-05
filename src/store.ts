@@ -4,7 +4,7 @@ import { phPlaylistUrl, readPlaylist } from "./utils";
 
 export interface ChannelStoreState {
     channels: Channel[];
-    fetchAll: (filterFn?: (channel: Channel, index: number) => boolean) => void;
+    fetchAll: (url?:string) => void;
     isLoading: boolean;
     error: any,
     hasFetched: boolean
@@ -12,12 +12,11 @@ export interface ChannelStoreState {
 export const useChannelStore = create<ChannelStoreState>((set) => ({
     channels: [],
     isLoading: false,
-    fetchAll: async (filterFn) => {
+    fetchAll: async (url) => {
         try {
-            set({ isLoading: true, error: null, hasFetched: false })
-            const playlist = await readPlaylist(phPlaylistUrl);
-            const fetchedChannels = playlist.channels;
-            const channels = filterFn ? fetchedChannels.filter(filterFn) : fetchedChannels.slice();
+            set({ channels:[],isLoading: true, error: null, hasFetched: false })
+            const playlist = await readPlaylist(url || phPlaylistUrl);
+            const channels = playlist.channels;
             set({
                 channels,
                 hasFetched: true
