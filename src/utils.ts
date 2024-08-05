@@ -21,13 +21,18 @@ export const readPlaylist = async (playlist: string): Promise<Playlist> => {
             const logo = values[1].substring(values[1].indexOf('"') + 1, values[1].lastIndexOf('"'));
             const category = values[2].substring(values[2].indexOf('"') + 1, values[2].lastIndexOf('"'));
 
+            let url = lineUrl.trim();
+            
+            // modify url if not secured(not https)
+            url = url.replace('http:', 'https:');
+
             channels.push({
                 id,
                 logo,
                 category,
                 name: channelName,
                 country: '',
-                url: lineUrl.trim()
+                url
             })
 
             categories.push(category)
