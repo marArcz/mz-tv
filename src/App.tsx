@@ -8,7 +8,7 @@ function App() {
 
     return (
         <>
-            <main className='h-screen w-full dark:bg-dark-bg text-white flex flex-col px-4 py-7'>
+            <main className='h-screen w-full box-border dark:bg-dark-bg text-white flex flex-col px-4 py-7'>
                 <Routes>
                     <Route path='/watch' element={<Watch/>}/>
                     <Route index element={<Home/>}/>
