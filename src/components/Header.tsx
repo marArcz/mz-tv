@@ -10,6 +10,10 @@ const Header = () => {
 
     const categories = [
         {
+            name: 'All',
+            url: 'https://iptv-org.github.io/iptv/index.m3u'
+        },
+        {
             name: 'PH TV',
             url: phPlaylistUrl
         },
@@ -21,6 +25,15 @@ const Header = () => {
             name: 'Movies',
             url: 'https://iptv-org.github.io/iptv/categories/movies.m3u'
         },
+        {
+            name:'NBA 5',
+            url:'http://112.25.48.68/live/program/live/hdnba5/4000000/mnf.m3u8'
+        },
+        {
+            name:'NBA 7',
+            url:'http://112.25.48.68/live/program/live/hdnba5/4000000/mnf.m3u8'
+        },
+        
     ];
 
     return (
